@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabit Kadli - Technical Business Analyst Portfolio</title>
+    <style>
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #1a1f3a;
+            --bg-tertiary: #2d3561;
+            --accent-green: #00ff88;
+            --accent-red: #ff6b6b;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Particle Background */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-green);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Section */
+        section {
+            min-height: 100vh;
+            padding: 6rem 0 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--accent-green), #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-green);
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+        }
+
+        /* About Section */
+        .personality-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric {
+            background: var(--glass-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-green);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-green), #00ccff);
+            border-radius: 10px;
+            transition: width 1s ease-out;
+        }
+
+        /* Hobbies */
+        .hobbies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .hobby {
+            background: var(--glass-bg);
+            padding: 1rem 1.5rem;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            font-size: 1rem;
+        }
+
+        /* Game Container */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .game-card {
+            background: var(--glass-bg);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            padding: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .game-card:hover {
+            transform: scale(1.02);
+            border-color: var(--accent-green);
+        }
+
+        .game-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-green);
+        }
+
+        .game-area {
+            min-height: 300px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .game-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #00cc70;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: #3d4571;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent-green), var(--accent-red));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+            padding: 0 2rem;
+        }
+
+        .timeline-item.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: var(--glass-bg);
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--accent-green);
+            transform: scale(1.05);
+        }
+
+        .timeline-icon {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .timeline-item.left .timeline-icon {
+            right: -20px;
+        }
+
+        .timeline-item.right .timeline-icon {
+            left: -20px;
+        }
+
+        .timeline-item.education .timeline-icon {
+            background: #00ccff;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-green);
+        }
+
+        .timeline-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .timeline-achievements {
+            margin-top: 1rem;
+        }
+
+        .timeline-achievements li {
+            margin-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Systems Grid */
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .system-card {
+            background: var(--glass-bg);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .system-card:hover {
+            transform: rotateY(5deg) translateY(-10px);
+            border-color: var(--accent-green);
+        }
+
+        .system-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .system-name {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-green);
+        }
+
+        .system-metric {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Productivity Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Skills Showcase */
+        .skills-category {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-green);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            transform: scale(1.1);
+        }
+
+        /* Escape Button */
+        #escapeBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-red);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        #escapeBtn:hover {
+            background: #ff5252;
+        }
+
+        .escape-counter {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: var(--glass-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            z-index: 999;
+            font-size: 0.9rem;
+        }
+
+        /* Drag and Drop Game */
+        .drag-container {
+            display: flex;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+
+        .drag-column {
+            flex: 1;
+        }
+
+        .drag-item {
+            background: var(--bg-tertiary);
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 10px;
+            cursor: move;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .drag-item:hover {
+            border-color: var(--accent-green);
+        }
+
+        .drop-zone {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 10px;
+            border: 2px dashed var(--glass-border);
+            min-height: 50px;
+            transition: all 0.3s;
+        }
+
+        .drop-zone.drag-over {
+            border-color: var(--accent-green);
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .drop-zone.filled {
+            border-style: solid;
+            border-color: var(--accent-green);
+        }
+
+        /* Card Flip Game */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .memory-card {
+            aspect-ratio: 1;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            font-size: 1.2rem;
+        }
+
+        .memory-card:hover {
+            border-color: var(--accent-green);
+        }
+
+        .memory-card.flipped {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+        }
+
+        .memory-card.matched {
+            background: #00ccff;
+            color: var(--bg-primary);
+        }
+
+        /* Score Display */
+        .score-display {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .score-item {
+            background: var(--glass-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+        }
+
+        .score-value {
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .contact-item {
+            background: var(--glass-bg);
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent-green);
+            transform: scale(1.05);
+        }
+
+        /* Telephony Game */
+        .call-button {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            border: none;
+            margin: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .route-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .route-btn {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 2px solid var(--glass-border);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .route-btn:hover {
+            border-color: var(--accent-green);
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        /* Query Builder */
+        .query-builder {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .query-display {
+            background: #000;
+            color: var(--accent-green);
+            padding: 1rem;
+            border-radius: 10px;
+            font-family: monospace;
+            margin-bottom: 1rem;
+            min-height: 50px;
+        }
+
+        .sql-commands {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .sql-cmd {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid var(--glass-border);
+        }
+
+        .sql-cmd:hover {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+        }
+
+        /* Architecture Builder */
+        .arch-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .arch-component {
+            background: var(--bg-tertiary);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            cursor: move;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .arch-component:hover {
+            border-color: var(--accent-green);
+        }
+
+        .arch-canvas {
+            background: rgba(0, 0, 0, 0.3);
+            min-height: 200px;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 2px dashed var(--glass-border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 20px !important;
+                text-align: left !important;
+                padding-left: 3rem;
+            }
+
+            .timeline-item .timeline-icon {
+                left: -20px !important;
+            }
+
+            .games-grid,
+            .systems-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .drag-container {
+                flex-direction: column;
+            }
+
+            .memory-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none;
+        }
+
+        /* Fade in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#games">Skills &amp; Games</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#systems">Systems Built</a></li>
+            <li><a href="#productivity">Achievements</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="profile-image">🚀</div>
+        <h1>Sabit Kadli</h1>
+        <p class="subtitle">I turn coffee into code, chaos into CRMs, and confusion into clarity ☕<br>
+Technical Business Analyst | Solution Architect | IT Consultant</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="glass-card fade-in">
+                <p style="font-size: 1.1rem; text-align: center; max-width: 800px; margin: 0 auto;">
+                    Results-driven Technical Business Analyst with over 5 years of making computers do what they're told (and sometimes what they're not told). 
+                    Proven expertise in bridging technical and non-technical stakeholders to deliver scalable, cloud-enabled solutions with measurable business impact. 
+                    Currently based in Melbourne, turning caffeine into enterprise systems.
+                </p>
+            </div>
+
+            <h3 style="text-align: center; margin: 3rem 0 2rem; font-size: 1.8rem;">Personality Metrics (Yes, I've Been Tested)</h3>
+            <div class="personality-metrics">
+                <div class="metric">
+                    <div class="metric-label">IQ Score</div>
+                    <div class="metric-value">135</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%;" data-width="90%"></div>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">Mensa Certified - Good at patterns, not passwords</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">EQ (Emotional Intelligence)</div>
+                    <div class="metric-value">87th Percentile</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%;" data-width="87%"></div>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">MSCEIT Framework - I can feel feelings</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">MBTI Type</div>
+                    <div class="metric-value">ENFP-A</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%;" data-width="85%"></div>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">The Campaigner - Extroverted chaos</p>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Sarcasm Level</div>
+                    <div class="metric-value">99%</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%;" data-width="99%"></div>
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">Self-assessed - You'll see</p>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin: 3rem 0 2rem; font-size: 1.8rem;">When I'm Not Fixing Your Systems</h3>
+            <div class="hobbies">
+                <div class="hobby">🍳 Cooking</div>
+                <div class="hobby">🌌 Astrophotography</div>
+                <div class="hobby">⛰️ Hiking</div>
+                <div class="hobby">🔧 Tech Tinkering</div>
+                <div class="hobby">🧪 Perfume Making</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games">
+        <div class="container">
+            <h2 class="section-title">Skills &amp; Mini-Games</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-secondary);">
+                Think you can keep up? Try these interactive challenges to see my skills in action.
+            </p>
+
+            <div class="games-grid">
+                <!-- API Integration Game -->
+                <div class="game-card">
+                    <h3 class="game-title">🔌 API Integration Matcher</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Drag APIs to their correct use cases. Easy, right?</p>
+                    <div class="score-display">
+                        <div class="score-item">Score: <span class="score-value" id="api-score">0</span>/5</div>
+                        <div class="score-item">Time: <span class="score-value" id="api-timer">0</span>s</div>
+                    </div>
+                    <div class="game-area" id="api-game">
+                        <div class="drag-container">
+                            <div class="drag-column">
+                                <h4 style="margin-bottom: 1rem;">APIs</h4>
+                                <div class="drag-item" draggable="true" data-api="docusign">DocuSign API</div>
+                                <div class="drag-item" draggable="true" data-api="propertyme">PropertyMe API</div>
+                                <div class="drag-item" draggable="true" data-api="kraken">Kraken API</div>
+                                <div class="drag-item" draggable="true" data-api="restful">RESTful API</div>
+                                <div class="drag-item" draggable="true" data-api="eventbridge">EventBridge</div>
+                            </div>
+                            <div class="drag-column">
+                                <h4 style="margin-bottom: 1rem;">Use Cases</h4>
+                                <div class="drop-zone" data-answer="docusign">Digital Signatures</div>
+                                <div class="drop-zone" data-answer="propertyme">Property Management</div>
+                                <div class="drop-zone" data-answer="kraken">Energy Retail</div>
+                                <div class="drop-zone" data-answer="restful">Web Services</div>
+                                <div class="drop-zone" data-answer="eventbridge">Event-Driven Architecture</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-controls">
+                        <button class="btn" onclick="resetAPIGame()">Reset</button>
+                        <button class="btn btn-secondary" onclick="checkAPIAnswers()">Check Answers</button>
+                    </div>
+                    <div id="api-feedback" style="margin-top: 1rem; color: var(--accent-green); font-weight: bold;"></div>
+                </div>
+
+                <!-- SQL Query Builder -->
+                <div class="game-card">
+                    <h3 class="game-title">💾 SQL Query Builder</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Build the correct SQL query. Challenge: <span id="sql-challenge-text">Select all users</span></p>
+                    <div class="score-display">
+                        <div class="score-item">Level: <span class="score-value" id="sql-level">1</span>/5</div>
+                        <div class="score-item">Score: <span class="score-value" id="sql-score">0</span></div>
+                    </div>
+                    <div class="game-area">
+                        <div class="query-display" id="sql-display">-- Your query will appear here</div>
+                        <div class="sql-commands">
+                            <div class="sql-cmd" onclick="addSQLCommand('SELECT *')">SELECT *</div>
+                            <div class="sql-cmd" onclick="addSQLCommand('FROM')">FROM</div>
+                            <div class="sql-cmd" onclick="addSQLCommand('users')">users</div>
+                            <div class="sql-cmd" onclick="addSQLCommand('orders')">orders</div>
+                            <div class="sql-cmd" onclick="addSQLCommand('WHERE')">WHERE</div>
+                            <div class="sql-cmd" onclick="addSQLCommand('JOIN')">JOIN</div>
+                            <div class="sql-cmd" onclick="addSQLCommand('=')"> = </div>
+                            <div class="sql-cmd" onclick="addSQLCommand('AND')">AND</div>
+                            <div class="sql-cmd" onclick="addSQLCommand('active')">active</div>
+                            <div class="sql-cmd" onclick="addSQLCommand('1')">1</div>
+                        </div>
+                    </div>
+                    <div class="game-controls">
+                        <button class="btn btn-secondary" onclick="clearSQLQuery()">Clear</button>
+                        <button class="btn" onclick="checkSQLQuery()">Submit Query</button>
+                    </div>
+                    <div id="sql-feedback" style="margin-top: 1rem; color: var(--accent-green); font-weight: bold;"></div>
+                </div>
+
+                <!-- React Memory Game -->
+                <div class="game-card">
+                    <h3 class="game-title">⚛️ React Concept Matcher</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Match React pairs. Your memory better than your code?</p>
+                    <div class="score-display">
+                        <div class="score-item">Pairs: <span class="score-value" id="react-pairs">0</span>/6</div>
+                        <div class="score-item">Moves: <span class="score-value" id="react-moves">0</span></div>
+                    </div>
+                    <div class="game-area">
+                        <div class="memory-grid" id="react-game"></div>
+                    </div>
+                    <div class="game-controls">
+                        <button class="btn" onclick="startReactGame()">New Game</button>
+                    </div>
+                    <div id="react-feedback" style="margin-top: 1rem; color: var(--accent-green); font-weight: bold;"></div>
+                </div>
+
+                <!-- Telephony System Game -->
+                <div class="game-card">
+                    <h3 class="game-title">📞 Call Routing Challenge</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Route incoming calls correctly. Don't make customers angrier!</p>
+                    <div class="score-display">
+                        <div class="score-item">Accuracy: <span class="score-value" id="call-accuracy">0</span>%</div>
+                        <div class="score-item">Speed: <span class="score-value" id="call-speed">0</span>s</div>
+                    </div>
+                    <div class="game-area" id="telephony-game">
+                        <div style="text-align: center; padding: 2rem;">
+                            <div id="incoming-call" style="font-size: 1.2rem; margin-bottom: 1rem; min-height: 60px;">Click Start to begin!</div>
+                            <div class="route-options" id="route-options" style="display: none;">
+                                <button class="route-btn" onclick="routeCall('Sales')">📊 Sales</button>
+                                <button class="route-btn" onclick="routeCall('Support')">🛠️ Support</button>
+                                <button class="route-btn" onclick="routeCall('Tech')">💻 Tech</button>
+                                <button class="route-btn" onclick="routeCall('Management')">👔 Management</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-controls">
+                        <button class="btn" onclick="startTelephonyGame()">Start Routing</button>
+                        <button class="btn btn-secondary" onclick="stopTelephonyGame()">Stop</button>
+                    </div>
+                    <div id="telephony-feedback" style="margin-top: 1rem; color: var(--accent-green); font-weight: bold;"></div>
+                </div>
+
+                <!-- AI/Automation Puzzle -->
+                <div class="game-card">
+                    <h3 class="game-title">🤖 Automation Flow Builder</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Arrange blocks to create a valid automation workflow.</p>
+                    <div class="score-display">
+                        <div class="score-item">Status: <span class="score-value" id="ai-status">Building...</span></div>
+                    </div>
+                    <div class="game-area">
+                        <div class="arch-canvas" id="ai-canvas">
+                            <p style="text-align: center; color: var(--text-secondary);">Drag workflow blocks here</p>
+                        </div>
+                        <div class="arch-grid">
+                            <div class="arch-component" draggable="true" data-component="start">▶️ Start</div>
+                            <div class="arch-component" draggable="true" data-component="input">📥 Data Input</div>
+                            <div class="arch-component" draggable="true" data-component="process">⚙️ Process</div>
+                            <div class="arch-component" draggable="true" data-component="decision">🔀 Decision</div>
+                            <div class="arch-component" draggable="true" data-component="ai">🤖 AI Analysis</div>
+                            <div class="arch-component" draggable="true" data-component="output">📤 Output</div>
+                        </div>
+                    </div>
+                    <div class="game-controls">
+                        <button class="btn btn-secondary" onclick="resetAIGame()">Reset</button>
+                        <button class="btn" onclick="validateAIWorkflow()">Validate Workflow</button>
+                    </div>
+                    <div id="ai-feedback" style="margin-top: 1rem; color: var(--accent-green); font-weight: bold;"></div>
+                </div>
+
+                <!-- Sales Pitch Timer -->
+                <div class="game-card">
+                    <h3 class="game-title">💼 Sales Pitch Challenge</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Type sales phrases as fast as you can. Clock's ticking!</p>
+                    <div class="score-display">
+                        <div class="score-item">WPM: <span class="score-value" id="sales-wpm">0</span></div>
+                        <div class="score-item">Time: <span class="score-value" id="sales-timer">30</span>s</div>
+                    </div>
+                    <div class="game-area">
+                        <div style="background: rgba(0,0,0,0.5); padding: 1rem; border-radius: 10px; margin-bottom: 1rem; min-height: 60px;">
+                            <p id="sales-target" style="font-size: 1.1rem; text-align: center;">Click Start to begin</p>
+                        </div>
+                        <textarea id="sales-input" class="form-control" style="width: 100%; min-height: 100px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: var(--text-primary); padding: 1rem; border-radius: 10px; font-size: 1rem;" placeholder="Type here..."></textarea>
+                    </div>
+                    <div class="game-controls">
+                        <button class="btn" onclick="startSalesGame()">Start Challenge</button>
+                    </div>
+                    <div id="sales-feedback" style="margin-top: 1rem; color: var(--accent-green); font-weight: bold;"></div>
+                </div>
+
+                <!-- Solution Architecture Builder -->
+                <div class="game-card">
+                    <h3 class="game-title">🏗️ Cloud Architecture Builder</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Build a scalable cloud architecture. Don't break the internet.</p>
+                    <div class="score-display">
+                        <div class="score-item">Components: <span class="score-value" id="arch-count">0</span></div>
+                    </div>
+                    <div class="game-area">
+                        <div class="arch-canvas" id="arch-canvas">
+                            <p style="text-align: center; color: var(--text-secondary);">Drag cloud components here</p>
+                        </div>
+                        <div class="arch-grid">
+                            <div class="arch-component" draggable="true" data-component="ec2">🖥️ AWS EC2</div>
+                            <div class="arch-component" draggable="true" data-component="s3">💾 AWS S3</div>
+                            <div class="arch-component" draggable="true" data-component="azure">☁️ Azure</div>
+                            <div class="arch-component" draggable="true" data-component="api">🔌 API Gateway</div>
+                            <div class="arch-component" draggable="true" data-component="db">🗄️ Database</div>
+                            <div class="arch-component" draggable="true" data-component="lambda">⚡ Lambda</div>
+                        </div>
+                    </div>
+                    <div class="game-controls">
+                        <button class="btn btn-secondary" onclick="resetArchGame()">Reset</button>
+                        <button class="btn" onclick="validateArchitecture()">Validate Architecture</button>
+                    </div>
+                    <div id="arch-feedback" style="margin-top: 1rem; color: var(--accent-green); font-weight: bold;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline">
+        <div class="container">
+            <h2 class="section-title">My Journey (The Timeline)</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-secondary);">
+                From student to systems architect. It's been a ride.
+            </p>
+            <div class="timeline" id="timeline-container"></div>
+        </div>
+    </section>
+
+    <!-- Systems Built Section -->
+    <section id="systems">
+        <div class="container">
+            <h2 class="section-title">Systems I've Built</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-secondary);">
+                Built systems that don't crash. Plot twist: they actually work.
+            </p>
+            <div class="systems-grid">
+                <div class="system-card">
+                    <div class="system-icon">🏢</div>
+                    <div class="system-name">Enterprise CRM Development &amp; Migration</div>
+                    <div class="system-metric">300+ users migrated</div>
+                    <div class="system-metric" style="color: var(--accent-green);">25% user adoption increase</div>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem;">Migrated 300+ users with ZERO downtime. Yes, ZERO. I'm as surprised as you are.</p>
+                </div>
+                <div class="system-card">
+                    <div class="system-icon">🤖</div>
+                    <div class="system-name">Data Automation Framework</div>
+                    <div class="system-metric">20 hours/week saved</div>
+                    <div class="system-metric" style="color: var(--accent-green);">40% manual effort reduction</div>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem;">Because humans shouldn't do what robots can do better.</p>
+                </div>
+                <div class="system-card">
+                    <div class="system-icon">📊</div>
+                    <div class="system-name">Analytics Dashboard</div>
+                    <div class="system-metric">35% error reduction</div>
+                    <div class="system-metric" style="color: var(--accent-green);">Improved data quality</div>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem;">Now you can actually trust your data. Novel concept, I know.</p>
+                </div>
+                <div class="system-card">
+                    <div class="system-icon">🔗</div>
+                    <div class="system-name">Cross-Platform Integration</div>
+                    <div class="system-metric">AWS, DocuSign, Kraken</div>
+                    <div class="system-metric" style="color: var(--accent-green);">Seamless data workflows</div>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem;">Made different systems talk to each other. Like couples therapy for software.</p>
+                </div>
+                <div class="system-card">
+                    <div class="system-icon">📞</div>
+                    <div class="system-name">Dialer Platform Upgrade</div>
+                    <div class="system-metric">18% cost reduction</div>
+                    <div class="system-metric" style="color: var(--accent-green);">Currently in progress</div>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem;">Upgrading telephony systems so people can actually hear each other.</p>
+                </div>
+                <div class="system-card">
+                    <div class="system-icon">💰</div>
+                    <div class="system-name">Financial Reporting Automation</div>
+                    <div class="system-metric">38% efficiency boost</div>
+                    <div class="system-metric" style="color: var(--accent-green);">Faster insights</div>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem;">Finance team now has time for lunch breaks. You're welcome, finance team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productivity Wins Section -->
+    <section id="productivity">
+        <div class="container">
+            <h2 class="section-title">Productivity Wins</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-secondary);">
+                The numbers don't lie (unlike some project managers).
+            </p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="42">0</div>
+                    <div class="stat-description">% Reduction in call handling time<br><small>The other 58%? That's just people who love talking.</small></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="38">0</div>
+                    <div class="stat-description">% Finance team efficiency boost<br><small>They can finally take lunch breaks.</small></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="35">0</div>
+                    <div class="stat-description">% Reduction in data errors<br><small>Computers are more accurate than humans. Shocker.</small></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="40">0</div>
+                    <div class="stat-description">% Manual effort saved through automation<br><small>Robots doing robot things.</small></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="29">0</div>
+                    <div class="stat-description">% System processing time reduction<br><small>Faster is better. Always.</small></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="0">0</div>
+                    <div class="stat-description">Downtime on 300+ user migration<br><small>Yes, ZERO. Not 0.1%. Actually zero.</small></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="18">0</div>
+                    <div class="stat-description">% Operational cost reduction (ongoing)<br><small>Saving money is fun.</small></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="25">0</div>
+                    <div class="stat-description">% CRM user adoption improvement<br><small>Made people actually want to use the CRM. Miracle.</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Showcase Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-secondary);">
+                5+ years of making computers do what they're told.
+            </p>
+
+            <div class="skills-category">
+                <h3 class="category-title">🔌 API Integration &amp; Web Services</h3>
+                <div class="skills-list">
+                    <div class="skill-tag">RESTful API</div>
+                    <div class="skill-tag">DocuSign API</div>
+                    <div class="skill-tag">Kraken API</div>
+                    <div class="skill-tag">PropertyMe API</div>
+                    <div class="skill-tag">Postman</div>
+                    <div class="skill-tag">EventBridge</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3 class="category-title">💾 SQL &amp; Data Analytics</h3>
+                <div class="skills-list">
+                    <div class="skill-tag">SQL</div>
+                    <div class="skill-tag">Tableau</div>
+                    <div class="skill-tag">SAP</div>
+                    <div class="skill-tag">PowerBI</div>
+                    <div class="skill-tag">Excel (pivot table wizard)</div>
+                    <div class="skill-tag">Data Governance</div>
+                    <div class="skill-tag">ETL</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3 class="category-title">⚛️ Frontend Development</h3>
+                <div class="skills-list">
+                    <div class="skill-tag">React.js (self-taught)</div>
+                    <div class="skill-tag">HTML5</div>
+                    <div class="skill-tag">CSS3</div>
+                    <div class="skill-tag">JavaScript</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3 class="category-title">📞 Telephony Systems</h3>
+                <div class="skills-list">
+                    <div class="skill-tag">WebRTC</div>
+                    <div class="skill-tag">IP Telephony</div>
+                    <div class="skill-tag">Dialer Platform Management</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3 class="category-title">🤖 AI &amp; Automation</h3>
+                <div class="skills-list">
+                    <div class="skill-tag">WorkFusion</div>
+                    <div class="skill-tag">UiPath</div>
+                    <div class="skill-tag">Blue Prism</div>
+                    <div class="skill-tag">ML-driven personalization</div>
+                    <div class="skill-tag">RPA</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3 class="category-title">☁️ Cloud &amp; Solution Architecture</h3>
+                <div class="skills-list">
+                    <div class="skill-tag">AWS (EC2, S3, Dynamo)</div>
+                    <div class="skill-tag">Azure</div>
+                    <div class="skill-tag">Google Cloud</div>
+                    <div class="skill-tag">System Integration</div>
+                    <div class="skill-tag">Solution Architecture</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3 class="category-title">💼 Business &amp; Methodologies</h3>
+                <div class="skills-list">
+                    <div class="skill-tag">B2B Sales</div>
+                    <div class="skill-tag">SMB Client Management</div>
+                    <div class="skill-tag">Customer Data Analysis</div>
+                    <div class="skill-tag">Agile</div>
+                    <div class="skill-tag">Scrum</div>
+                    <div class="skill-tag">Change Management</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-secondary);">
+                Yes, I actually respond to emails. Usually.
+            </p>
+            <div class="contact-info">
+                <div class="contact-item" onclick="copyToClipboard('sabit.kadli@gmail.com', 'email')">
+                    <span style="font-size: 1.5rem;">📧</span>
+                    <span>sabit.kadli@gmail.com</span>
+                </div>
+                <div class="contact-item" onclick="copyToClipboard('0404 000 996', 'phone')">
+                    <span style="font-size: 1.5rem;">📱</span>
+                    <span>0404 000 996</span>
+                </div>
+                <div class="contact-item">
+                    <span style="font-size: 1.5rem;">📍</span>
+                    <span>Melbourne, Victoria, Australia</span>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 3rem; color: var(--text-secondary);">
+                Made with ☕ and sarcasm in Melbourne<br>
+                © 2025 Sabit Kadli. All rights reserved.
+            </p>
+        </div>
+    </section>
+
+    <!-- Escape Button -->
+    <button id="escapeBtn">I don't like this</button>
+    <div class="escape-counter" id="escapeCounter">Escape attempts: 0</div>
+
+    <script>
+        // Particle Background
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 50;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = 2;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.fillStyle = 'rgba(0, 255, 136, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            // Connect nearby particles
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 150) {
+                        ctx.strokeStyle = `rgba(0, 255, 136, ${0.2 - distance / 750})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(animateParticles);
+        }
+
+        animateParticles();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Animate progress bars on scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.progress-fill');
+                    progressBars.forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-width');
+                    });
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(document.querySelector('.personality-metrics'));
+
+        // Animate stat counters
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.getAttribute('data-target'));
+                        let current = 0;
+                        const increment = target / 50;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                stat.textContent = target;
+                                clearInterval(timer);
+                            } else {
+                                stat.textContent = Math.floor(current);
+                            }
+                        }, 30);
+                    });
+                    statObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsGrid = document.querySelector('.stats-grid');
+        if (statsGrid) statObserver.observe(statsGrid);
+
+        // Timeline Data
+        const timelineData = [
+            {
+                type: 'work',
+                title: 'IT Consultant',
+                company: 'Residential Connections Pty Ltd',
+                location: 'Melbourne',
+                period: 'Jul 2024 - Present',
+                achievements: [
+                    'Leading dialer platform upgrade - reducing operational cost by 18%',
+                    'Oversee API integrations (DocuSign, PropertyMe, Kraken)',
+                    'Manage end-to-end technical project delivery',
+                    'Facilitate AWS cloud solutions adoption'
+                ]
+            },
+            {
+                type: 'work',
+                title: 'IT Business Analyst',
+                company: 'Residential Connections Pty Ltd',
+                location: 'Melbourne',
+                period: 'Aug 2023 - Jul 2024',
+                achievements: [
+                    'Led CRM upgrade - migrated 300+ users with ZERO downtime',
+                    'Reduced call handling time by 42%',
+                    'Boosted finance team efficiency by 38%',
+                    'Improved CRM user adoption by 25%'
+                ]
+            },
+            {
+                type: 'work',
+                title: 'Junior QA / Business Analyst',
+                company: 'Residential Connections Pty Ltd',
+                location: 'Melbourne',
+                period: 'Nov 2021 - Aug 2023',
+                achievements: [
+                    'Reduced system processing time by 29%',
+                    'Executed UAT testing for CRM upgrades',
+                    'Maintained compliance documentation'
+                ]
+            },
+            {
+                type: 'work',
+                title: 'IT Trainee',
+                company: 'Residential Connections Pty Ltd',
+                location: 'Melbourne',
+                period: 'Jun 2021 - Nov 2021',
+                achievements: [
+                    'Provided Tier 1/2 support',
+                    'Supported telephony infrastructure (WebRTC)',
+                    'Assisted in automation tool implementation'
+                ]
+            },
+            {
+                type: 'work',
+                title: 'Sales Consultant',
+                company: 'Residential Connections Pty Ltd',
+                location: 'Melbourne',
+                period: 'Sep 2019 - Jun 2021',
+                achievements: [
+                    'Delivered data-driven utility comparison services',
+                    'Generated business insights from call data',
+                    'Collaborated with IT on customer journey improvements'
+                ]
+            },
+            {
+                type: 'education',
+                title: 'Master of Business Information Technology',
+                institution: 'RMIT University',
+                location: 'Melbourne',
+                period: '2017 - 2019',
+                achievements: [
+                    'Specialized in analytics, innovation, change management, and cybersecurity'
+                ]
+            },
+            {
+                type: 'work',
+                title: 'IT Support Analyst',
+                company: 'Axiom Technology Australia',
+                location: 'Melbourne',
+                period: 'Jul 2019 - Sep 2019',
+                achievements: [
+                    'Resolved tickets for 50+ users',
+                    'Supported desktop rollouts'
+                ]
+            },
+            {
+                type: 'work',
+                title: 'Consumer Behaviour Analyst',
+                company: 'Finomena Finance',
+                location: 'Bangalore/Melbourne',
+                period: 'Oct 2016 - Jun 2017',
+                achievements: [
+                    'Analyzed customer data for lending decisions',
+                    'Implemented ML-driven personalization'
+                ]
+            },
+            {
+                type: 'work',
+                title: 'Technical Analyst',
+                company: 'PCOC',
+                location: 'Bangalore',
+                period: 'Nov 2015 - Jul 2016',
+                achievements: [
+                    'Improved IT infrastructure',
+                    'Enhanced data load efficiency by 20%'
+                ]
+            },
+            {
+                type: 'education',
+                title: 'Bachelor of Business Management',
+                institution: 'Jain University',
+                location: 'Bangalore',
+                period: '2013 - 2016',
+                achievements: [
+                    'Business Economics, Administration, Strategic Planning'
+                ]
+            }
+        ];
+
+        // Generate Timeline
+        const timelineContainer = document.getElementById('timeline-container');
+        timelineData.forEach((item, index) => {
+            const timelineItem = document.createElement('div');
+            timelineItem.className = `timeline-item ${index % 2 === 0 ? 'left' : 'right'} ${item.type}`;
+            
+            const icon = item.type === 'education' ? '🎓' : '💼';
+            const companyOrInstitution = item.company || item.institution;
+            
+            timelineItem.innerHTML = `
+                <div class="timeline-icon">${icon}</div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">${item.title}</h3>
+                    <p class="timeline-subtitle">${companyOrInstitution} • ${item.location}</p>
+                    <p class="timeline-subtitle">${item.period}</p>
+                    <ul class="timeline-achievements">
+                        ${item.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+            
+            timelineContainer.appendChild(timelineItem);
+        });
+
+        // API Integration Game
+        let apiTimer = 0;
+        let apiTimerInterval = null;
+        let draggedAPI = null;
+
+        const dragItems = document.querySelectorAll('.drag-item');
+        const dropZones = document.querySelectorAll('.drop-zone');
+
+        dragItems.forEach(item => {
+            item.addEventListener('dragstart', (e) => {
+                draggedAPI = e.target.getAttribute('data-api');
+                e.target.style.opacity = '0.5';
+            });
+
+            item.addEventListener('dragend', (e) => {
+                e.target.style.opacity = '1';
+            });
+        });
+
+        dropZones.forEach(zone => {
+            zone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                zone.classList.add('drag-over');
+            });
+
+            zone.addEventListener('dragleave', () => {
+                zone.classList.remove('drag-over');
+            });
+
+            zone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                zone.classList.remove('drag-over');
+                zone.classList.add('filled');
+                zone.textContent = draggedAPI.charAt(0).toUpperCase() + draggedAPI.slice(1) + ' → ' + zone.textContent.split(' → ')[0];
+                zone.setAttribute('data-placed', draggedAPI);
+                
+                if (!apiTimerInterval) {
+                    apiTimerInterval = setInterval(() => {
+                        apiTimer++;
+                        document.getElementById('api-timer').textContent = apiTimer;
+                    }, 1000);
+                }
+            });
+        });
+
+        function resetAPIGame() {
+            clearInterval(apiTimerInterval);
+            apiTimerInterval = null;
+            apiTimer = 0;
+            document.getElementById('api-timer').textContent = '0';
+            document.getElementById('api-score').textContent = '0';
+            document.getElementById('api-feedback').textContent = '';
+            
+            dropZones.forEach(zone => {
+                zone.classList.remove('filled');
+                zone.textContent = zone.textContent.split(' → ')[0];
+                zone.removeAttribute('data-placed');
+            });
+        }
+
+        function checkAPIAnswers() {
+            let correct = 0;
+            dropZones.forEach(zone => {
+                const answer = zone.getAttribute('data-answer');
+                const placed = zone.getAttribute('data-placed');
+                if (answer === placed) {
+                    correct++;
+                }
+            });
+            
+            document.getElementById('api-score').textContent = correct;
+            clearInterval(apiTimerInterval);
+            
+            const feedback = document.getElementById('api-feedback');
+            if (correct === 5) {
+                feedback.textContent = "Nice! You'd make a decent integration engineer... maybe.";
+                feedback.style.color = 'var(--accent-green)';
+            } else {
+                feedback.textContent = `Got ${correct}/5. Try again, or just Google it like everyone else.`;
+                feedback.style.color = 'var(--accent-red)';
+            }
+        }
+
+        // SQL Query Builder Game
+        const sqlChallenges = [
+            { query: 'SELECT * FROM users', description: 'Select all users' },
+            { query: 'SELECT * FROM users WHERE active = 1', description: 'Select active users' },
+            { query: 'SELECT * FROM orders WHERE active = 1', description: 'Select active orders' },
+            { query: 'SELECT * FROM users JOIN orders', description: 'Join users and orders' },
+            { query: 'SELECT * FROM users WHERE active = 1 AND active = 1', description: 'Complex where clause' }
+        ];
+        
+        let currentSQLLevel = 0;
+        let sqlScore = 0;
+        let currentQuery = [];
+
+        function loadSQLChallenge() {
+            if (currentSQLLevel < sqlChallenges.length) {
+                document.getElementById('sql-challenge-text').textContent = sqlChallenges[currentSQLLevel].description;
+                document.getElementById('sql-level').textContent = (currentSQLLevel + 1);
+            }
+        }
+
+        function addSQLCommand(cmd) {
+            currentQuery.push(cmd);
+            document.getElementById('sql-display').textContent = currentQuery.join(' ');
+        }
+
+        function clearSQLQuery() {
+            currentQuery = [];
+            document.getElementById('sql-display').textContent = '-- Your query will appear here';
+        }
+
+        function checkSQLQuery() {
+            const userQuery = currentQuery.join(' ');
+            const correctQuery = sqlChallenges[currentSQLLevel].query;
+            const feedback = document.getElementById('sql-feedback');
+            
+            if (userQuery === correctQuery) {
+                sqlScore += 20;
+                document.getElementById('sql-score').textContent = sqlScore;
+                feedback.textContent = "Correct! Though a monkey with syntax highlighting could've done that.";
+                feedback.style.color = 'var(--accent-green)';
+                currentSQLLevel++;
+                clearSQLQuery();
+                
+                if (currentSQLLevel < sqlChallenges.length) {
+                    setTimeout(loadSQLChallenge, 2000);
+                } else {
+                    feedback.textContent = "You finished all levels! You might actually know SQL.";
+                }
+            } else {
+                feedback.textContent = "Wrong! That query would probably break production.";
+                feedback.style.color = 'var(--accent-red)';
+            }
+        }
+
+        loadSQLChallenge();
+
+        // React Memory Game
+        const reactConcepts = [
+            'useState', 'useState',
+            'useEffect', 'useEffect',
+            'props', 'props',
+            'JSX', 'JSX',
+            'components', 'components',
+            'hooks', 'hooks'
+        ];
+        
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let moves = 0;
+
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        function startReactGame() {
+            const gameContainer = document.getElementById('react-game');
+            gameContainer.innerHTML = '';
+            matchedPairs = 0;
+            moves = 0;
+            flippedCards = [];
+            document.getElementById('react-pairs').textContent = '0';
+            document.getElementById('react-moves').textContent = '0';
+            document.getElementById('react-feedback').textContent = '';
+            
+            const shuffled = shuffleArray(reactConcepts);
+            
+            shuffled.forEach((concept, index) => {
+                const card = document.createElement('div');
+                card.className = 'memory-card';
+                card.textContent = '?';
+                card.setAttribute('data-concept', concept);
+                card.setAttribute('data-index', index);
+                card.addEventListener('click', flipCard);
+                gameContainer.appendChild(card);
+            });
+        }
+
+        function flipCard(e) {
+            const card = e.target;
+            
+            if (card.classList.contains('flipped') || card.classList.contains('matched') || flippedCards.length === 2) {
+                return;
+            }
+            
+            card.classList.add('flipped');
+            card.textContent = card.getAttribute('data-concept');
+            flippedCards.push(card);
+            
+            if (flippedCards.length === 2) {
+                moves++;
+                document.getElementById('react-moves').textContent = moves;
+                
+                const [card1, card2] = flippedCards;
+                
+                if (card1.getAttribute('data-concept') === card2.getAttribute('data-concept')) {
+                    card1.classList.add('matched');
+                    card2.classList.add('matched');
+                    matchedPairs++;
+                    document.getElementById('react-pairs').textContent = matchedPairs;
+                    flippedCards = [];
+                    
+                    if (matchedPairs === 6) {
+                        document.getElementById('react-feedback').textContent = "You remembered hooks! Maybe you actually know React.";
+                    }
+                } else {
+                    setTimeout(() => {
+                        card1.classList.remove('flipped');
+                        card2.classList.remove('flipped');
+                        card1.textContent = '?';
+                        card2.textContent = '?';
+                        flippedCards = [];
+                    }, 1000);
+                }
+            }
+        }
+
+        startReactGame();
+
+        // Telephony Game
+        const callTypes = [
+            { text: 'Customer wants to upgrade service', answer: 'Sales' },
+            { text: 'System is not working properly', answer: 'Tech' },
+            { text: 'Need help with billing', answer: 'Support' },
+            { text: 'Contract negotiation discussion', answer: 'Management' },
+            { text: 'Product inquiry for new client', answer: 'Sales' },
+            { text: 'Server down emergency', answer: 'Tech' },
+            { text: 'Account access issues', answer: 'Support' },
+            { text: 'Strategic partnership discussion', answer: 'Management' }
+        ];
+        
+        let currentCall = null;
+        let telephonyScore = { correct: 0, total: 0 };
+        let callStartTime = null;
+        let telephonyInterval = null;
+
+        function startTelephonyGame() {
+            telephonyScore = { correct: 0, total: 0 };
+            document.getElementById('call-accuracy').textContent = '0';
+            document.getElementById('call-speed').textContent = '0';
+            document.getElementById('telephony-feedback').textContent = '';
+            document.getElementById('route-options').style.display = 'grid';
+            nextCall();
+        }
+
+        function nextCall() {
+            currentCall = callTypes[Math.floor(Math.random() * callTypes.length)];
+            callStartTime = Date.now();
+            document.getElementById('incoming-call').innerHTML = `
+                <div class="call-button">📞 INCOMING CALL</div>
+                <p style="margin-top: 1rem;">${currentCall.text}</p>
+            `;
+        }
+
+        function routeCall(department) {
+            const timeTaken = ((Date.now() - callStartTime) / 1000).toFixed(1);
+            telephonyScore.total++;
+            
+            if (department === currentCall.answer) {
+                telephonyScore.correct++;
+            }
+            
+            const accuracy = Math.round((telephonyScore.correct / telephonyScore.total) * 100);
+            document.getElementById('call-accuracy').textContent = accuracy;
+            document.getElementById('call-speed').textContent = timeTaken;
+            
+            if (telephonyScore.total === 10) {
+                stopTelephonyGame();
+                const angryCustomers = 10 - telephonyScore.correct;
+                document.getElementById('telephony-feedback').textContent = 
+                    `Only ${angryCustomers} angry customers! That's actually pretty good.`;
+            } else {
+                setTimeout(nextCall, 1500);
+            }
+        }
+
+        function stopTelephonyGame() {
+            document.getElementById('route-options').style.display = 'none';
+            document.getElementById('incoming-call').textContent = 'Game Over! Click Start to play again.';
+        }
+
+        // AI Automation Game
+        const aiWorkflow = [];
+        
+        const aiComponents = document.querySelectorAll('#ai-canvas');
+        const aiCanvas = document.getElementById('ai-canvas');
+        
+        document.querySelectorAll('[data-component]').forEach(component => {
+            component.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('component', e.target.getAttribute('data-component'));
+            });
+        });
+        
+        aiCanvas.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+        
+        aiCanvas.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const componentType = e.dataTransfer.getData('component');
+            aiWorkflow.push(componentType);
+            
+            const componentEmojis = {
+                start: '▶️', input: '📥', process: '⚙️',
+                decision: '🔀', ai: '🤖', output: '📤'
+            };
+            
+            const chip = document.createElement('span');
+            chip.style.cssText = 'display: inline-block; background: var(--bg-tertiary); padding: 0.5rem 1rem; margin: 0.5rem; border-radius: 10px;';
+            chip.textContent = componentEmojis[componentType] + ' ' + componentType;
+            aiCanvas.appendChild(chip);
+        });
+        
+        function resetAIGame() {
+            aiWorkflow.length = 0;
+            aiCanvas.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Drag workflow blocks here</p>';
+            document.getElementById('ai-feedback').textContent = '';
+        }
+        
+        function validateAIWorkflow() {
+            const feedback = document.getElementById('ai-feedback');
+            
+            if (aiWorkflow.length < 3) {
+                feedback.textContent = "That's not even a workflow. Try harder.";
+                feedback.style.color = 'var(--accent-red)';
+                return;
+            }
+            
+            if (aiWorkflow[0] !== 'start') {
+                feedback.textContent = "Workflows need to start with... a Start block. Revolutionary, I know.";
+                feedback.style.color = 'var(--accent-red)';
+                return;
+            }
+            
+            if (aiWorkflow[aiWorkflow.length - 1] !== 'output') {
+                feedback.textContent = "Where's the output? That workflow goes nowhere.";
+                feedback.style.color = 'var(--accent-red)';
+                return;
+            }
+            
+            feedback.textContent = "Congratulations, you've successfully automated... a really simple task.";
+            feedback.style.color = 'var(--accent-green)';
+        }
+
+        // Sales Pitch Game
+        const salesPhrases = [
+            "Our solution delivers measurable ROI within the first quarter",
+            "We pride ourselves on customer-centric innovation and scalability",
+            "This cutting-edge technology will transform your business operations",
+            "Let's schedule a demo to show you how we can add value",
+            "Our clients have seen a 40% increase in productivity"
+        ];
+        
+        let salesTimer = 30;
+        let salesInterval = null;
+        let salesStartTime = null;
+        
+        function startSalesGame() {
+            const targetPhrase = salesPhrases[Math.floor(Math.random() * salesPhrases.length)];
+            document.getElementById('sales-target').textContent = targetPhrase;
+            document.getElementById('sales-input').value = '';
+            salesTimer = 30;
+            salesStartTime = Date.now();
+            document.getElementById('sales-feedback').textContent = '';
+            
+            salesInterval = setInterval(() => {
+                salesTimer--;
+                document.getElementById('sales-timer').textContent = salesTimer;
+                
+                const input = document.getElementById('sales-input').value;
+                const wordsTyped = input.trim().split(/\s+/).length;
+                const timeElapsed = (Date.now() - salesStartTime) / 1000 / 60;
+                const wpm = Math.round(wordsTyped / timeElapsed);
+                document.getElementById('sales-wpm').textContent = wpm;
+                
+                if (input === targetPhrase) {
+                    clearInterval(salesInterval);
+                    document.getElementById('sales-feedback').textContent = 
+                        "Fast talker! You'd fit right in a sales floor.";
+                    document.getElementById('sales-feedback').style.color = 'var(--accent-green)';
+                }
+                
+                if (salesTimer <= 0) {
+                    clearInterval(salesInterval);
+                    document.getElementById('sales-feedback').textContent = 
+                        "Time's up! In sales, speed matters. So does accuracy.";
+                    document.getElementById('sales-feedback').style.color = 'var(--accent-red)';
+                }
+            }, 1000);
+        }
+
+        // Architecture Builder Game
+        const archWorkflow = [];
+        const archCanvas = document.getElementById('arch-canvas');
+        
+        archCanvas.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+        
+        archCanvas.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const componentType = e.dataTransfer.getData('component');
+            archWorkflow.push(componentType);
+            
+            const componentEmojis = {
+                ec2: '🖥️', s3: '💾', azure: '☁️',
+                api: '🔌', db: '🗄️', lambda: '⚡'
+            };
+            
+            const chip = document.createElement('span');
+            chip.style.cssText = 'display: inline-block; background: var(--bg-tertiary); padding: 0.5rem 1rem; margin: 0.5rem; border-radius: 10px;';
+            chip.textContent = componentEmojis[componentType] + ' ' + componentType.toUpperCase();
+            archCanvas.appendChild(chip);
+            
+            document.getElementById('arch-count').textContent = archWorkflow.length;
+        });
+        
+        function resetArchGame() {
+            archWorkflow.length = 0;
+            archCanvas.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Drag cloud components here</p>';
+            document.getElementById('arch-count').textContent = '0';
+            document.getElementById('arch-feedback').textContent = '';
+        }
+        
+        function validateArchitecture() {
+            const feedback = document.getElementById('arch-feedback');
+            
+            if (archWorkflow.length < 3) {
+                feedback.textContent = "That's not architecture, that's just one service. Add more components.";
+                feedback.style.color = 'var(--accent-red)';
+                return;
+            }
+            
+            const hasCompute = archWorkflow.includes('ec2') || archWorkflow.includes('lambda');
+            const hasStorage = archWorkflow.includes('s3') || archWorkflow.includes('db');
+            const hasAPI = archWorkflow.includes('api');
+            
+            if (!hasCompute) {
+                feedback.textContent = "No compute layer? Where's the processing happening, in your imagination?";
+                feedback.style.color = 'var(--accent-red)';
+                return;
+            }
+            
+            if (!hasStorage) {
+                feedback.textContent = "No storage? Where are you keeping the data, in a notebook?";
+                feedback.style.color = 'var(--accent-red)';
+                return;
+            }
+            
+            feedback.textContent = "That architecture might actually work. Shocking.";
+            feedback.style.color = 'var(--accent-green)';
+        }
+
+        // Escape Button Game
+        let escapeAttempts = 0;
+        const escapeBtn = document.getElementById('escapeBtn');
+        const escapeCounter = document.getElementById('escapeCounter');
+        
+        document.addEventListener('mousemove', (e) => {
+            const btnRect = escapeBtn.getBoundingClientRect();
+            const btnCenterX = btnRect.left + btnRect.width / 2;
+            const btnCenterY = btnRect.top + btnRect.height / 2;
+            
+            const distance = Math.sqrt(
+                Math.pow(e.clientX - btnCenterX, 2) + 
+                Math.pow(e.clientY - btnCenterY, 2)
+            );
+            
+            if (distance < 100 && escapeAttempts < 10) {
+                escapeAttempts++;
+                escapeCounter.textContent = `Escape attempts: ${escapeAttempts}`;
+                
+                const maxX = window.innerWidth - btnRect.width - 50;
+                const maxY = window.innerHeight - btnRect.height - 50;
+                
+                const newX = Math.random() * maxX;
+                const newY = Math.random() * maxY;
+                
+                escapeBtn.style.left = newX + 'px';
+                escapeBtn.style.top = newY + 'px';
+                escapeBtn.style.right = 'auto';
+                escapeBtn.style.bottom = 'auto';
+                
+                if (escapeAttempts === 5) {
+                    escapeBtn.textContent = 'Nice try! 😏';
+                }
+                
+                if (escapeAttempts === 10) {
+                    escapeBtn.style.display = 'none';
+                    escapeCounter.innerHTML = `
+                        You're persistent. I like that.<br>
+                        Here's my email: <strong style="color: var(--accent-green);">sabit.kadli@gmail.com</strong>
+                    `;
+                    escapeCounter.style.fontSize = '1.1rem';
+                    escapeCounter.style.padding = '1rem 1.5rem';
+                }
+            }
+        });
+
+        // Copy to clipboard
+        function copyToClipboard(text, type) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                alert(`${type === 'email' ? 'Email' : 'Phone'} copied to clipboard!`);
+            } catch (err) {
+                alert(`${text}`);
+            }
+            
+            document.body.removeChild(textarea);
+        }
+    </script>
+</body>
+</html>
