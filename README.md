@@ -22,57 +22,6 @@ portfolio-website/
     └── Pics
 ```
 
-## Setup Instructions
-
-### 1. Add Your Photos
-
-Place your photos in the `assets/` folder with these names:
-- `profile.jpg` - Main profile photo (use IMG_20190530_143349.jpg)
-- Add any additional images you want to display
-
-### 2. Upload to GitHub
-
-```bash
-git init
-git add .
-git commit -m "Initial commit: Portfolio website"
-git branch -M main
-git remote add origin https://github.com/yourusername/sabitkadli.com.git
-git push -u origin main
-```
-
-### 3. Enable GitHub Pages
-
-1. Go to repository Settings
-2. Navigate to Pages section
-3. Set Source to "main" branch
-4. Set folder to "/ (root)"
-5. Save
-
-### 4. Configure Custom Domain (Namecheap)
-
-1. In GitHub Pages settings, add custom domain: `sabitkadli.com`
-2. In Namecheap, go to Advanced DNS
-3. Add these A Records (Host: @):
-   - 185.199.108.153
-   - 185.199.109.153
-   - 185.199.110.153
-   - 185.199.111.153
-4. Add CNAME Record:
-   - Host: www
-   - Value: yourusername.github.io
-
-### Alternative: Deploy to AWS S3
-
-For more control and to demonstrate cloud skills:
-
-1. Create S3 bucket named: sabitkadli.com
-2. Enable static website hosting
-3. Upload all files
-4. Set up CloudFront distribution
-5. Configure Route 53 for domain
-6. Add ACM SSL certificate
-
 ## Features
 
 - Fully responsive design
