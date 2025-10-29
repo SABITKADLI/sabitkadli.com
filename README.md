@@ -19,7 +19,7 @@ portfolio-website/
 │   ├── games-react.js     # React memory game
 │   └── games-telephony.js # Telephony routing game
 └── assets/
-    └── (place your images here)
+    └── Pics
 ```
 
 ## Setup Instructions
