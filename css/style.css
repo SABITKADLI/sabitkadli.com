@@ -186,86 +186,47 @@ header {
 }
 
 /* Timeline Styles */
-.timeline {
-  position: relative;
-  max-width: 900px;
-  margin: 2rem auto;
-}
-
-.timeline-item {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  position: relative;
-}
-
-.timeline-marker {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-top: 0.3rem;
-  position: relative;
-  z-index: 1;
-}
-
-.timeline-marker.work {
-  background-color: var(--accent-blue);
-}
-
-.timeline-marker.education {
-  background-color: var(--accent-purple);
-}
-
-.timeline-marker::before {
-  content: '';
+.timeline-section { padding: 2rem 1rem; }
+.timeline-container { max-width: 1000px; margin: auto; position: relative; }
+.timeline-title { text-align: center; margin-bottom: 2rem; }
+.timeline-wrapper { position: relative; padding: 2rem 0; }
+.timeline-line {
   position: absolute;
   left: 50%;
-  top: 20px;
-  width: 2px;
-  height: calc(100% + 2rem);
-  background-color: var(--border-color);
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: #ffd369;
   transform: translateX(-50%);
+  z-index: 1;
+  border-radius: 8px;
 }
 
-.timeline-item:last-child .timeline-marker::before {
-  display: none;
-}
+.timeline-item { width: 45%; position: relative; margin-bottom: 2.5rem; z-index: 2; }
+.timeline-item.left { left: 0; float: left; clear: both; text-align: right; }
+.timeline-item.right { left: 55%; float: right; clear: both; text-align: left; }
 
 .timeline-content {
-  background-color: var(--bg-card);
-  padding: 1.5rem;
+  background: #fff;
+  color: #222;
+  padding: 1rem 2rem;
   border-radius: 12px;
-  border: 1px solid var(--border-color);
-  flex: 1;
+  box-shadow: 0 2px 16px #eee;
+  position: relative;
 }
 
-.timeline-content h3 {
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-  font-size: 1.3rem;
-}
+.timeline-item.left .timeline-content { margin-right: 2.5rem; }
+.timeline-item.right .timeline-content { margin-left: 2.5rem; }
 
-.company {
-  color: var(--accent-blue);
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-}
+/* Title, subtitle, etc. */
+.timeline-content h3 { margin-top: 0; }
+.timeline-content p.company { font-weight: bold; margin-bottom: 0.25em; }
+.timeline-content p.period { font-style: italic; margin-bottom: 0.5em; color: #888; }
 
-.period {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.timeline-content ul {
-  margin-top: 1rem;
-  padding-left: 1.2rem;
-}
-
-.timeline-content li {
-  color: var(--text-secondary);
-  margin-bottom: 0.5rem;
+@media (max-width: 900px) {
+  .timeline-item, .timeline-item.left, .timeline-item.right { width: 100%; left: 0 !important; float: none; text-align: left; }
+  .timeline-line { left: 30px; }
+  .timeline-content { margin: 1rem 0 1rem 2.5rem; }
 }
 
 /* Contact Section */
