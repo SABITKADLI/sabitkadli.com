@@ -149,7 +149,224 @@ header {
   color: white;
 }
 
-/* === Sections, Metrics, Skills, Timeline, Contact, Footer... (unchanged, omitted for brevity) === */
+/* ===================================
+   MOBILE-FIRST SECTIONS
+   =================================== */
+section {
+  padding: 2rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 1.5rem; /* 24px */
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ===================================
+   MOBILE-FIRST METRICS
+   =================================== */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.metric-card {
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.metric-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.metric-value {
+  font-size: 1.75rem; /* 28px */
+  font-weight: bold;
+  color: var(--accent-blue);
+  margin-bottom: 0.5rem;
+}
+
+.metric-label {
+  font-size: 0.875rem; /* 14px */
+  color: var(--text-secondary);
+}
+
+/* ===================================
+   MOBILE-FIRST SKILLS
+   =================================== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.skill-category {
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.skill-category h3 {
+  font-size: 1.125rem; /* 18px */
+  margin-bottom: 1rem;
+  color: var(--accent-green);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 0.5rem 0.875rem;
+  border-radius: 20px;
+  font-size: 0.8125rem; /* 13px */
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background-color: var(--accent-blue);
+  color: white;
+  border-color: var(--accent-blue);
+}
+
+/* ===================================
+   MOBILE-FIRST TIMELINE
+   =================================== */
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
+  border: 3px solid var(--bg-dark);
+  transform: translateX(-5px);
+}
+
+.timeline-content {
+  background-color: var(--bg-card);
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.timeline-date {
+  font-size: 0.8125rem; /* 13px */
+  color: var(--accent-green);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.timeline-content h3 {
+  font-size: 1.125rem; /* 18px */
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+  font-size: 0.875rem; /* 14px */
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ===================================
+   MOBILE-FIRST CONTACT
+   =================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.contact-card {
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-card a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+  color: var(--accent-green);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent-blue);
+}
+
+/* ===================================
+   MOBILE-FIRST FOOTER
+   =================================== */
+footer {
+  background-color: var(--bg-secondary);
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  margin-top: 3rem;
+}
+
+footer p {
+  color: var(--text-secondary);
+  font-size: 0.875rem; /* 14px */
+}
 
 /* ===================================
    TABLET BREAKPOINT (min-width: 600px)
@@ -158,13 +375,145 @@ header {
   .container {
     padding: 0 1.5rem; /* 24px */
   }
-  /* ... rest unchanged ... */
+
+  .header-content {
+    flex-direction: row;
+    text-align: left;
+    gap: 1.25rem;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .header-text h1 {
+    font-size: 1.5rem; /* 24px */
+  }
+
+  .tagline {
+    font-size: 1rem; /* 16px */
+  }
+
+  .location {
+    font-size: 0.875rem; /* 14px */
+  }
+
+  .main-nav {
+    gap: 0.75rem;
+  }
+
+  .main-nav a {
+    font-size: 0.875rem; /* 14px */
+    padding: 0.625rem 1rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem; /* 28px */
+  }
 }
 
 /* ===================================
    DESKTOP BREAKPOINT (min-width: 900px)
    =================================== */
 @media (min-width: 900px) {
-  /* header fixed only for desktop, not mobile */
-  /* ... rest unchanged ... */
+  .container {
+    max-width: 1200px;
+    padding: 0 2rem; /* 32px */
+  }
+
+  section {
+    padding: 3rem 0;
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .header-text h1 {
+    font-size: 1.875rem; /* 30px */
+  }
+
+  .tagline {
+    font-size: 1.0625rem; /* 17px */
+  }
+
+  .location {
+    font-size: 0.9375rem; /* 15px */
+  }
+
+  .main-nav a {
+    font-size: 0.9375rem; /* 15px */
+    padding: 0.75rem 1.25rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem; /* 32px */
+    margin-bottom: 2rem;
+  }
+
+  .timeline {
+    padding-left: 2rem;
+  }
+
+  .timeline-item {
+    padding-left: 2rem;
+  }
+
+  footer {
+    padding: 2.5rem 0;
+  }
+}
+
+/* ===================================
+   LARGE DESKTOP (min-width: 1200px)
+   =================================== */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .metrics-grid {
+    gap: 2rem;
+  }
+
+  .skills-grid {
+    gap: 2rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
 }
