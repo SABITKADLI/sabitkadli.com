@@ -41,12 +41,11 @@ body {
   padding: 0 20px;
 }
 
-/* Header Styles */
+/* Header Styles - MOBILE FIRST (not sticky on mobile) */
 header {
   background-color: var(--bg-secondary);
   padding: 2rem 0;
-  position: sticky;
-  top: 0;
+  position: relative; /* Changed from sticky to relative for mobile */
   z-index: 100;
   border-bottom: 1px solid var(--border-color);
 }
@@ -431,5 +430,13 @@ footer {
 
   .metric-card {
     padding: 1.5rem;
+  }
+}
+
+/* DESKTOP ONLY - Make header sticky on larger screens */
+@media (min-width: 769px) {
+  header {
+    position: sticky;
+    top: 0;
   }
 }
