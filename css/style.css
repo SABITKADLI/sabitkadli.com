@@ -1,6 +1,4 @@
-/* ===================================
-   MOBILE-FIRST CSS RESET & BASE
-   =================================== */
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -17,14 +15,6 @@
   --accent-green: #00d9a3;
   --accent-purple: #8b5cf6;
   --border-color: #2d3748;
-  /* Header height variables */
-  --header-height-mobile: 64px;
-  --header-height-desktop: 160px;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
 }
 
 body {
@@ -33,7 +23,6 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
-  /* Remove padding-top, header will scroll normally */
 }
 
 #particles {
@@ -46,173 +35,130 @@ body {
   pointer-events: none;
 }
 
-/* ===================================
-   MOBILE-FIRST CONTAINER
-   =================================== */
 .container {
-  width: 100%;
-  padding: 0 1rem; /* 16px on mobile */
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* ===================================
-   MOBILE-FIRST HEADER
-   =================================== */
+/* Header Styles */
 header {
   background-color: var(--bg-secondary);
-  /* REMOVE: position: fixed; */
-  /* REMOVE: top, left, right */
-  width: 100%;
+  padding: 2rem 0;
+  position: sticky;
+  top: 0;
   z-index: 100;
   border-bottom: 1px solid var(--border-color);
-  padding: 1rem 0;
-  /* Remove sticky/fixed so header scrolls up on mobile */
-}
-
-@media (min-width: 900px) {
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: 100;
-    padding: 1.5rem 0;
-  }
-  body {
-    padding-top: var(--header-height-desktop);
-  }
 }
 
 .header-content {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .profile-img {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--accent-blue);
-  flex-shrink: 0;
+  border: 4px solid var(--accent-blue);
 }
 
 .header-text h1 {
-  font-size: 1.25rem; /* 20px */
-  margin-bottom: 0.25rem;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
   color: var(--text-primary);
-  font-weight: 600;
 }
 
 .tagline {
-  font-size: 0.875rem; /* 14px */
+  font-size: 1.1rem;
   color: var(--text-secondary);
-  margin-bottom: 0.125rem;
-  line-height: 1.4;
+  margin-bottom: 0.3rem;
 }
 
 .location {
-  font-size: 0.8125rem; /* 13px */
+  font-size: 0.95rem;
   color: var(--text-secondary);
 }
 
-/* ===================================
-   MOBILE-FIRST NAVIGATION
-   =================================== */
+/* Navigation */
 .main-nav {
   display: flex;
-  gap: 0.5rem;
+  gap: 2rem;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0 0.5rem;
 }
 
 .main-nav a {
   color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.8125rem; /* 13px */
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 1rem;
   border-radius: 6px;
   transition: all 0.3s ease;
-  white-space: nowrap;
 }
 
-.main-nav a:hover,
-.main-nav a:active {
+.main-nav a:hover {
   background-color: var(--accent-blue);
   color: white;
 }
 
-/* ===================================
-   MOBILE-FIRST SECTIONS
-   =================================== */
-section {
-  padding: 2rem 0;
-  position: relative;
-  z-index: 1;
+/* Section Styles */
+.section {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.section-title {
-  font-size: 1.5rem; /* 24px */
-  margin-bottom: 1.5rem;
-  color: var(--text-primary);
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
   text-align: center;
-  font-weight: 600;
+  color: var(--accent-blue);
 }
 
-/* ===================================
-   MOBILE-FIRST METRICS
-   =================================== */
+/* Metrics Grid */
 .metrics-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .metric-card {
   background-color: var(--bg-card);
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: 12px;
-  border: 1px solid var(--border-color);
   text-align: center;
+  border: 1px solid var(--border-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .metric-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(74, 158, 255, 0.2);
 }
 
-.metric-icon {
-  font-size: 2rem;
-  margin-bottom: 0.75rem;
-}
-
-.metric-value {
-  font-size: 1.75rem; /* 28px */
+.metric-number {
+  font-size: 3rem;
   font-weight: bold;
-  color: var(--accent-blue);
+  color: var(--accent-green);
   margin-bottom: 0.5rem;
 }
 
 .metric-label {
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.95rem;
   color: var(--text-secondary);
+  line-height: 1.4;
 }
 
-/* ===================================
-   MOBILE-FIRST SKILLS
-   =================================== */
-.skills-grid {
+/* Skills Container */
+.skills-container {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .skill-category {
@@ -223,163 +169,202 @@ section {
 }
 
 .skill-category h3 {
-  font-size: 1.125rem; /* 18px */
+  color: var(--accent-purple);
   margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.skill-category ul {
+  list-style: none;
+}
+
+.skill-category li {
+  padding: 0.5rem 0;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.skill-category li:last-child {
+  border-bottom: none;
+}
+
+.skill-category li:before {
+  content: "▹ ";
   color: var(--accent-green);
+  font-weight: bold;
+  margin-right: 0.5rem;
 }
 
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+/* Timeline Section Styles */
+.timeline-section {
+  padding: 2rem 0;
+  background: var(--bg-dark);
 }
 
-.skill-tag {
-  background-color: var(--bg-secondary);
-  color: var(--text-primary);
-  padding: 0.5rem 0.875rem;
-  border-radius: 20px;
-  font-size: 0.8125rem; /* 13px */
-  border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+.timeline-title {
+  text-align: center;
+  color: var(--accent-blue);
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
 }
 
-.skill-tag:hover {
-  background-color: var(--accent-blue);
-  color: white;
-  border-color: var(--accent-blue);
-}
-
-/* ===================================
-   MOBILE-FIRST TIMELINE
-   =================================== */
-.timeline {
+.timeline-wrapper {
   position: relative;
-  padding-left: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 200px;
 }
 
-.timeline::before {
-  content: '';
+.timeline-line {
   position: absolute;
-  left: 0;
+  left: 50%;
   top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple));
+  transform: translateX(-50%);
+  height: 100%;
+  width: 4px;
+  background: var(--accent-blue);
+  z-index: 1;
+  border-radius: 4px;
 }
 
+/* Timeline Items */
 .timeline-item {
   position: relative;
+  width: 50%;
+  padding: 2rem 2rem 2rem 0;
+  box-sizing: border-box;
+  z-index: 2;
   margin-bottom: 2rem;
-  padding-left: 1.5rem;
 }
 
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -1.5rem;
-  top: 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: var(--accent-blue);
-  border: 3px solid var(--bg-dark);
-  transform: translateX(-5px);
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+  padding: 2rem 0 2rem 2rem;
 }
 
 .timeline-content {
-  background-color: var(--bg-card);
-  padding: 1.25rem;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  padding: 1.5rem 2rem;
   border-radius: 12px;
   border: 1px solid var(--border-color);
-}
-
-.timeline-date {
-  font-size: 0.8125rem; /* 13px */
-  color: var(--accent-green);
-  margin-bottom: 0.5rem;
-  font-weight: 500;
+  box-shadow: 0 2px 18px 0 #0002;
+  position: relative;
+  display: inline-block;
+  max-width: 90%;
 }
 
 .timeline-content h3 {
-  font-size: 1.125rem; /* 18px */
+  margin: 0 0 0.4em 0;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
 }
-
-.timeline-content p {
-  font-size: 0.875rem; /* 14px */
+.timeline-content .company {
+  font-weight: bold;
+  color: var(--accent-blue);
+}
+.timeline-content .period {
+  font-size: 0.95em;
   color: var(--text-secondary);
-  line-height: 1.6;
+  margin-bottom: 0.5em;
+}
+.timeline-content ul {
+  margin: 1em 0 0 0;
+  padding-left: 1.25em;
+  text-align: left;
+}
+.timeline-content li {
+  color: var(--text-secondary);
+  margin-bottom: 0.45em;
 }
 
-/* ===================================
-   MOBILE-FIRST CONTACT
-   =================================== */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+/* Responsive Design */
+@media (max-width: 900px) {
+  .timeline-line { left: 24px; }
+  .timeline-item, .timeline-item.left, .timeline-item.right {
+    width: 100%;
+    left: 0;
+    text-align: left;
+    padding: 2rem 0 2rem 2.5rem;
+  }
+  .timeline-content {
+    margin: 0 0 2rem 36px;
+    max-width: 96%;
+  }
+}
+/* Contact Section */
+.contact-info {
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
-}
-
-.contact-card {
+  max-width: 600px;
+  margin: 2rem auto;
   background-color: var(--bg-card);
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: 12px;
   border: 1px solid var(--border-color);
-  text-align: center;
-  transition: transform 0.3s ease;
 }
 
-.contact-card:hover {
-  transform: translateY(-5px);
+.contact-item {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
 }
 
-.contact-card a {
+.contact-item strong {
+  color: var(--text-primary);
+  margin-right: 0.5rem;
+}
+
+.contact-item a {
   color: var(--accent-blue);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
 }
 
-.contact-card a:hover {
-  color: var(--accent-green);
+.contact-item a:hover {
+  text-decoration: underline;
 }
 
-.contact-icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--accent-blue);
+.cta {
+  text-align: center;
+  margin-top: 2rem;
 }
 
-/* ===================================
-   MOBILE-FIRST FOOTER
-   =================================== */
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--accent-blue);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--accent-green);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 217, 163, 0.3);
+}
+
+/* Footer */
 footer {
   background-color: var(--bg-secondary);
   padding: 2rem 0;
   text-align: center;
-  border-top: 1px solid var(--border-color);
-  margin-top: 3rem;
-}
-
-footer p {
   color: var(--text-secondary);
-  font-size: 0.875rem; /* 14px */
+  border-top: 1px solid var(--border-color);
 }
 
-/* ===================================
-   TABLET BREAKPOINT (min-width: 600px)
-   =================================== */
-@media (min-width: 600px) {
-  .container {
-    padding: 0 1.5rem; /* 24px */
-  }
-
+/* Mobile Responsive */
+@media (max-width: 768px) {
   .header-content {
-    flex-direction: row;
-    text-align: left;
-    gap: 1.25rem;
+    flex-direction: column;
+    text-align: center;
   }
 
   .profile-img {
@@ -388,132 +373,63 @@ footer p {
   }
 
   .header-text h1 {
-    font-size: 1.5rem; /* 24px */
-  }
-
-  .tagline {
-    font-size: 1rem; /* 16px */
-  }
-
-  .location {
-    font-size: 0.875rem; /* 14px */
+    font-size: 1.5rem;
   }
 
   .main-nav {
-    gap: 0.75rem;
+    gap: 1rem;
+    font-size: 0.9rem;
   }
 
-  .main-nav a {
-    font-size: 0.875rem; /* 14px */
-    padding: 0.625rem 1rem;
+  .section {
+    padding: 2rem 0;
   }
 
-  .metrics-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
-
-  .contact-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
-
-  .section-title {
-    font-size: 1.75rem; /* 28px */
-  }
-}
-
-/* ===================================
-   DESKTOP BREAKPOINT (min-width: 900px)
-   =================================== */
-@media (min-width: 900px) {
-  .container {
-    max-width: 1200px;
-    padding: 0 2rem; /* 32px */
-  }
-
-  section {
-    padding: 3rem 0;
-  }
-
-  .profile-img {
-    width: 120px;
-    height: 120px;
-  }
-
-  .header-text h1 {
-    font-size: 1.875rem; /* 30px */
-  }
-
-  .tagline {
-    font-size: 1.0625rem; /* 17px */
-  }
-
-  .location {
-    font-size: 0.9375rem; /* 15px */
-  }
-
-  .main-nav a {
-    font-size: 0.9375rem; /* 15px */
-    padding: 0.75rem 1.25rem;
+  .section h2 {
+    font-size: 1.5rem;
   }
 
   .metrics-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
   }
 
-  .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+  .metric-number {
+    font-size: 2.5rem;
   }
 
-  .contact-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .section-title {
-    font-size: 2rem; /* 32px */
-    margin-bottom: 2rem;
-  }
-
-  .timeline {
-    padding-left: 2rem;
+  .skills-container {
+    grid-template-columns: 1fr;
   }
 
   .timeline-item {
-    padding-left: 2rem;
+    gap: 1rem;
   }
 
-  footer {
-    padding: 2.5rem 0;
+  .timeline-content {
+    padding: 1rem;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.1rem;
   }
 }
 
-/* ===================================
-   LARGE DESKTOP (min-width: 1200px)
-   =================================== */
-@media (min-width: 1200px) {
+@media (max-width: 480px) {
   .container {
-    max-width: 1400px;
+    padding: 0 15px;
   }
 
-  .metrics-grid {
-    gap: 2rem;
+  .main-nav {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  .skills-grid {
-    gap: 2rem;
+  .main-nav a {
+    width: 100%;
+    text-align: center;
   }
 
-  .contact-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+  .metric-card {
+    padding: 1.5rem;
   }
 }
